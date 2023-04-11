@@ -30,6 +30,7 @@ const removeContact = async (req, res) => {
 const addContact = async (req, res) => {
     const result = await contactsService.addContact(req.body);
     res.status(201).json(result);
+   
 }
 
 const updateContactById = async (req, res) => {

@@ -9,7 +9,7 @@ router.get('/:contactId', controllersContacts.getContactById)
 
 router.post('/', validateBody(schemas.contactAddSchema), controllersContacts.addContact)
 
-router.put('/:contactId', validateBody(schemas.contactAddSchema), controllersContacts.updateContactById)
+router.put('/:contactId',  controllersContacts.updateContactById)
 
 router.delete('/:contactId', controllersContacts.removeContact)
 

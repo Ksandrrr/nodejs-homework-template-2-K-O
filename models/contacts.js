@@ -44,13 +44,15 @@ const addContact = async ({ name, email, phone }) => {
 }
 
 
-const updateContactbyId = async (contactId,{ name, email, phone}) => {
+const updateContactbyId = async (contactId,body) => {
     const contacts = await listContacts();
     const index = contacts.findIndex(item => item.id === contactId);
     if (index === -1) {
         return null;
     }
-    contacts[index] = { contactId, name, email, phone };
+    // contacts[index] = { contactId, name, email, phone };
+  const updatedContact = { ...contacts[index], ...body };
+  contacts[index] = updatedContact;
     await updateContact(contacts);
     return contacts[index];
 }
