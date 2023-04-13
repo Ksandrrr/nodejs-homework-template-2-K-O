@@ -37,10 +37,10 @@ const updateContactById = async (req, res) => {
     const { contactId } = req.params;
     const result = await contactsService.updateContactbyId(contactId, req.body);
     if (!result) {
-        throw HttpError(404, `missing fields`);
+        throw HttpError(404, `Not found`);
   }
    if(JSON.stringify(req.body) === "{}") {
-    throw HttpError(404, "missing fields")
+    throw HttpError(400, "missing fields")
   }
     res.json(result);
 }
