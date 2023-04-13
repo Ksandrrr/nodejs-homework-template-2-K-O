@@ -40,7 +40,7 @@ const updateContactById = async (req, res) => {
         throw HttpError(404, `missing fields`);
   }
    if(JSON.stringify(req.body) === "{}") {
-    throw HttpError(400, "missing fields")
+    throw HttpError(404, "missing fields")
   }
     res.json(result);
 }
