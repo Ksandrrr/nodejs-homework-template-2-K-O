@@ -21,7 +21,7 @@ const contactSchema = new Schema({
       default: false,
     },
   
-}, { versionKey: false, timestamps: true });
+}, { versionKey: false });
 
 const contactAddSchema = Joi.object({
     name: Joi.string().required().messages({
@@ -37,7 +37,7 @@ const contactAddSchema = Joi.object({
 })
 
 const favoriteSchema =  Joi.object({
-  favorite: Joi.boolean().required(),
+  favorite: Joi.boolean(),
 })
 
 contactSchema.post("save", HttpError);
