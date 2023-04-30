@@ -6,7 +6,7 @@ const authenticate = require("../../middlewares/authenticate")
 
 const validateBody = require("../../utils/validateBody")
 
-const schemas = require("../../models/auth");
+const {schemas} = require("../../models/auth");
 
 const router = express.Router();
 
