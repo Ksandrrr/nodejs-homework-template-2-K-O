@@ -3,7 +3,11 @@ const controllersContacts = require("../../controllers/contacts")
 const router = express.Router()
 const schemas = require("../../models/contacts");
 const validateBody = require("../../utils/validateBody")
-const isValidId  = require("../../middlewares/isValideId")
+const isValidId = require("../../middlewares/isValideId")
+
+const authenticate = require("../../middlewares/authenticate")
+
+router.use(authenticate);
 
 router.get('/', controllersContacts.listContacts)
 
