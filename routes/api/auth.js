@@ -4,6 +4,8 @@ const authController = require("../../controllers/auth");
 
 const authenticate = require("../../middlewares/authenticate")
 
+const upload = require("../../middlewares/upload")
+
 const validateBody = require("../../utils/validateBody")
 
 const {schemas} = require("../../models/auth");
@@ -19,5 +21,7 @@ router.post("/login", validateBody(schemas.userLoginSchema), authController.logi
 router.get("/current", authenticate, authController.getCurrent);
 
 router.post("/logout", authenticate, authController.logout);
+
+router.patch("/avatars", authenticate, upload.single("avatar"), authController.updateAvatar);
 
 module.exports = router;
